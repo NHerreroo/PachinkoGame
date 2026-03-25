@@ -61,6 +61,7 @@ height = 10.661743
 sides = 30
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=402727628]
+collision_mask = 7
 
 [node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=1110849025]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.3129883, 1.5)
@@ -95,6 +96,7 @@ material_override = SubResource("StandardMaterial3D_rgh2o")
 size = Vector3(12, 4, 1)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Walls" unique_id=413859220]
+collision_mask = 7
 
 [node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D" unique_id=1666483681]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5261006, 1.5, 1.5)

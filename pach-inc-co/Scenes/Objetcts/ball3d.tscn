@@ -18,6 +18,8 @@ material = SubResource("StandardMaterial3D_4lc2y")
 
 [node name="Ball3d" type="RigidBody3D" unique_id=575890458 groups=["normalBall", "pickable"]]
 transform = Transform3D(1.7320864, 0, 0, 0, 1.7320864, 0, 0, 0, 1.7320864, 0, 0, 0)
+collision_layer = 4
+collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_bjata")
 can_sleep = false
 freeze_mode = 1
