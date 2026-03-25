@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d0q8ej5gvbkw"]
+
+[ext_resource type="Script" uid="uid://bb8jhahi2wp1y" path="res://Scripts/ball_launcher.gd" id="1_kqjew"]
+
+[node name="BallLauncher" type="Node2D" unique_id=865570461]
+script = ExtResource("1_kqjew")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=706151289]

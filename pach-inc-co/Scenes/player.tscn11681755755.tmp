@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cmkm1eau4t3t7"]
+
+[ext_resource type="Script" uid="uid://djbojg5lhocbk" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://oi8aq6ih24q8" path="res://Scripts/camera_3d.gd" id="2_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://ccy01eelh3jyc" path="res://Scenes/HUD.tscn" id="2_cvnsp"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6t5aa"]
+
+[node name="Player" type="CharacterBody3D" unique_id=862065623]
+script = ExtResource("1_v0iea")
+metadata/_edit_vertical_guides_ = [960.0]
+metadata/_edit_horizontal_guides_ = [540.0]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1638759234]
+shape = SubResource("CylinderShape3D_6t5aa")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1553165869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8705951, 0)
+script = ExtResource("2_6t5aa")
+
+[node name="Hand" type="Marker3D" parent="Camera3D" unique_id=962898712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.663403e-05, 0.008704662, -1.6601784)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1374710058]
+transform = Transform3D(14.373921, 0, 0, 0, -4.37114e-08, -16.663998, 0, 1.0000002, -7.2840646e-07, 0, 0.0069664717, -0.0329051)
+target_position = Vector3(0, -6.55, 0)
+collision_mask = 3
+debug_shape_thickness = 5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1328925780]
+follow_viewport_enabled = true
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1208900468]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 17.0
+offset_right = 2.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer/Control" unique_id=1373435788]
+position = Vector2(958, 523)
+scale = Vector2(2.433821, 2.4299052)
+points = PackedVector2Array(0, 0, 0.1, 0.1)
+closed = true
+width = 6.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Hud" parent="CanvasLayer" unique_id=668067319 instance=ExtResource("2_cvnsp")]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2003361259]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=756635211]
+shape = SubResource("CylinderShape3D_6t5aa")

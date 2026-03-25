@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dueexhohqgd1t"]
+
+[ext_resource type="Texture2D" uid="uid://dbdto1d170qxw" path="res://Sprites/TestTextures/Purple/texture_09.png" id="1_syvvr"]
+[ext_resource type="Script" uid="uid://d2l0pvb8fwqox" path="res://Scripts/ball_generator_1.gd" id="1_xcv6r"]
+[ext_resource type="PackedScene" uid="uid://4anhhmumgr08" path="res://Scenes/Objetcts/ball3d.tscn" id="2_7hyrg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xcv6r"]
+albedo_texture = ExtResource("1_syvvr")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7hyrg"]
+data = PackedVector3Array(-0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5)
+
+[node name="BallGenerator1" type="Node3D" unique_id=748014324]
+script = ExtResource("1_xcv6r")
+objeto_a_lanzar = ExtResource("2_7hyrg")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1578126784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51325226, 0)
+material_override = SubResource("StandardMaterial3D_xcv6r")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=52492106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1723518, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1419809316]
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=18249074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51325226, 0)
+shape = SubResource("ConcavePolygonShape3D_7hyrg")

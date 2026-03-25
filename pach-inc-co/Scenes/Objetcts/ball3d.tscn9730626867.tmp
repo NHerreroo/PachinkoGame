@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://4anhhmumgr08"]
+
+[ext_resource type="Script" uid="uid://b5ifeangf7rbq" path="res://Scripts/ball_3d.gd" id="1_bjata"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4lc2y"]
+radius = 0.12938923
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lc2y"]
+albedo_color = Color(0.19412896, 0.22703293, 0.47283906, 1)
+metallic = 0.91
+metallic_specular = 0.41
+roughness = 0.26
+
+[sub_resource type="SphereMesh" id="SphereMesh_ov4xt"]
+material = SubResource("StandardMaterial3D_4lc2y")
+
+[node name="Ball3d" type="RigidBody3D" unique_id=575890458 groups=["normalBall", "pickable"]]
+transform = Transform3D(1.7320864, 0, 0, 0, 1.7320864, 0, 0, 0, 1.7320864, 0, 0, 0)
+mass = 10.218
+inertia = Vector3(68.97, 0, 0)
+script = ExtResource("1_bjata")
+push_force = null
+interaction_radius = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=129793279]
+transform = Transform3D(0.69903255, 0, 0, 0, 0.69903255, 0, 0, 0, 0.69903255, 0, 0, 0)
+shape = SubResource("SphereShape3D_4lc2y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1726380896]
+transform = Transform3D(0.17825328, 0, 0, 0, 0.17825328, 0, 0, 0, 0.17825328, 0, 0, 0)
+mesh = SubResource("SphereMesh_ov4xt")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=497783839 groups=["pickable"]]
+transform = Transform3D(0.69903255, 0, 0, 0, 0.69903255, 0, 0, 0, 0.69903255, 0, 0, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=262668566]
+shape = SubResource("SphereShape3D_4lc2y")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

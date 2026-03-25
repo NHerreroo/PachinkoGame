@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cggak4cpw21uf"]
+
+[ext_resource type="Texture2D" uid="uid://dsugkrym0xdv4" path="res://Sprites/test.png" id="1_reaqg"]
+[ext_resource type="PackedScene" uid="uid://d0q8ej5gvbkw" path="res://Scenes/Objetcts/Ball_Launcher.tscn" id="2_ltymw"]
+[ext_resource type="PackedScene" uid="uid://jcs2b7t5m8um" path="res://Scenes/Objetcts/Ball_2D_Machine.tscn" id="3_uaasa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_05tfl"]
+radius = 12.0
+
+[node name="MachineScene" type="Node2D" unique_id=444220492]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1687440452]
+position = Vector2(372, 106)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=335727042]
+polygon = PackedVector2Array(406, 593, 406, 300, 408, 281, 411, 266, 415, 252, 422, 234, 428, 221, 438, 205, 451, 188, 462, 176, 486, 155, 505, 143, 529, 131, 550, 123, 595, 116, 638, 118, 671, 128, 703, 143, 741, 173, 775, 217, 793, 261, 800, 318, 791, 371, 776, 406, 748, 445, 706, 480, 663, 500, 614, 509, 575, 508, 532, 496, 487, 472, 450, 438, 434, 413, 428, 404, 428, 593, 755, 587, 825, 460, 839, 129, 472, 70, 401, 91, 365, 273, 381, 602, 407, 646, 429, 605, 443, 586, 428, 593)
+
+[node name="Test" type="Sprite2D" parent="." unique_id=1552546257]
+position = Vector2(980, 576)
+texture = ExtResource("1_reaqg")
+
+[node name="BallLauncher" parent="." unique_id=865570461 instance=ExtResource("2_ltymw")]
+position = Vector2(790, 669)
+objeto_a_lanzar = ExtResource("3_uaasa")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=390972966]
+position = Vector2(953, 436)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1928596753 groups=["Hole"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=62089043]
+position = Vector2(974, 604)
+shape = SubResource("CircleShape2D_05tfl")

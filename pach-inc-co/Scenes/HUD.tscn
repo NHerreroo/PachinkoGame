@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ccy01eelh3jyc"]
+
+[ext_resource type="Script" uid="uid://c5rk45nt17spk" path="res://Scripts/hud.gd" id="1_sd512"]
+
+[node name="Hud" type="Control" unique_id=668067319]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sd512")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=82315391]
+
+[node name="Time" type="Label" parent="CanvasLayer" unique_id=1677735949]
+offset_left = 935.0
+offset_top = 35.0
+offset_right = 996.0
+offset_bottom = 58.0
+text = "TIEMPO"
+
+[node name="Bolas" type="Label" parent="CanvasLayer" unique_id=160802571]
+offset_left = 1660.0
+offset_top = 27.0
+offset_right = 1721.0
+offset_bottom = 50.0
+text = "Balls"

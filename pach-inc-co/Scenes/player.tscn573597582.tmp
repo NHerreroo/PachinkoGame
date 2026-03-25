@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cmkm1eau4t3t7"]
+
+[ext_resource type="Script" uid="uid://djbojg5lhocbk" path="res://Scripts/player.gd" id="1_v0iea"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0iea"]
+
+[node name="Player" type="CharacterBody3D" unique_id=862065623]
+script = ExtResource("1_v0iea")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=937317637]
+shape = SubResource("CapsuleShape3D_v0iea")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1553165869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8705951, 0)
+
+[node name="Hand" type="Marker3D" parent="Camera3D" unique_id=962898712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.663403e-05, 0.008704662, -0.75790495)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1374710058]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.0069664717, 0)
+target_position = Vector3(0, -4, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1328925780]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1208900468]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer/Control" unique_id=1373435788]
+position = Vector2(575, 321)
+points = PackedVector2Array(0, 0, 0.1, 0.1)
+closed = true
+width = 6.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2003361259]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=756635211]
+shape = SubResource("CapsuleShape3D_v0iea")
