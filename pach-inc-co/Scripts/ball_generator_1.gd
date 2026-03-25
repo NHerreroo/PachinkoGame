@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var objeto_a_lanzar: PackedScene
-@export var intervalo_lanzamiento: float = 5.0
+@export var intervalo_lanzamiento: float = Global.interval
 @export var auto_lanzar: bool = true
 
 # Called when the node enters the scene tree for the first time.

@@ -1,27 +1,73 @@
 [gd_scene format=3 uid="uid://cggak4cpw21uf"]
 
-[ext_resource type="Texture2D" uid="uid://dsugkrym0xdv4" path="res://Sprites/test.png" id="1_reaqg"]
 [ext_resource type="PackedScene" uid="uid://d0q8ej5gvbkw" path="res://Scenes/Objetcts/Ball_Launcher.tscn" id="2_ltymw"]
+[ext_resource type="Shader" uid="uid://bur0u138fe0n6" path="res://Shaders/crt.gdshader" id="2_uaasa"]
+[ext_resource type="Texture2D" uid="uid://ca222du5it00g" path="res://Sprites/testttt.png" id="3_reaqg"]
 [ext_resource type="PackedScene" uid="uid://jcs2b7t5m8um" path="res://Scenes/Objetcts/Ball_2D_Machine.tscn" id="3_uaasa"]
+[ext_resource type="Shader" uid="uid://w77fnnwlt0su" path="res://Shaders/BackGround.gdshader" id="4_ltymw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_05tfl"]
-radius = 12.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ltymw"]
+shader = ExtResource("4_ltymw")
+shader_parameter/color1 = Color(1, 0.4, 0.2, 1)
+shader_parameter/color2 = Color(0.2, 0.6, 1, 1)
+shader_parameter/color3 = Color(0.8, 0.2, 0.8, 1)
+shader_parameter/color4 = Color(0.2, 0.8, 0.4, 1)
+shader_parameter/speed = 0.5
+shader_parameter/wave_frequency = 3.0
+shader_parameter/wave_amplitude = 0.97300004295762
+shader_parameter/grain_strength = 0.05
+shader_parameter/grain_scale = 100.0
+shader_parameter/gradient_scale = 2.4170000910575
+shader_parameter/blend_smoothness = 0.6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uaasa"]
+shader = ExtResource("2_uaasa")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 2.64
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 0.33000001241512
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.0310000014725
+shader_parameter/aberration = 0.010000047974999982
+shader_parameter/brightness = 1.025
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.2090000099275
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.525
+shader_parameter/vignette_opacity = 0.4290000203775
 
 [node name="MachineScene" type="Node2D" unique_id=444220492]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1687440452]
-position = Vector2(372, 106)
+[node name="BackGround" type="ColorRect" parent="." unique_id=1083315434]
+material = SubResource("ShaderMaterial_ltymw")
+offset_right = 1918.0
+offset_bottom = 1082.0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=335727042]
-polygon = PackedVector2Array(406, 593, 406, 300, 408, 281, 411, 266, 415, 252, 422, 234, 428, 221, 438, 205, 451, 188, 462, 176, 486, 155, 505, 143, 529, 131, 550, 123, 595, 116, 638, 118, 671, 128, 703, 143, 741, 173, 775, 217, 793, 261, 800, 318, 791, 371, 776, 406, 748, 445, 706, 480, 663, 500, 614, 509, 575, 508, 532, 496, 487, 472, 450, 438, 434, 413, 428, 404, 428, 593, 755, 587, 825, 460, 839, 129, 472, 70, 401, 91, 365, 273, 381, 602, 407, 646, 429, 605, 443, 586, 428, 593)
+[node name="Machine" type="Node2D" parent="." unique_id=686621840]
 
-[node name="Test" type="Sprite2D" parent="." unique_id=1552546257]
-position = Vector2(980, 576)
-texture = ExtResource("1_reaqg")
+[node name="Testttt" type="Sprite2D" parent="Machine" unique_id=2043750314]
+position = Vector2(942, 502)
+scale = Vector2(2.3508832, 2.3508832)
+texture = ExtResource("3_reaqg")
 
-[node name="BallLauncher" parent="." unique_id=865570461 instance=ExtResource("2_ltymw")]
-position = Vector2(790, 669)
+[node name="StaticBody2D" type="StaticBody2D" parent="Machine/Testttt" unique_id=539772949]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Machine/Testttt/StaticBody2D" unique_id=1017127396]
+polygon = PackedVector2Array(-92.73111, 148.45485, -92.305756, -39.98497, -91.45499, -45.94017, -90.60425, -51.044647, -87.201294, -59.977448, -84.22366, -67.208786, -79.544586, -75.71622, -74.440125, -82.94754, -67.634155, -89.753494, -61.2536, -95.7087, -52.32077, -101.66391, -42.962585, -107.19375, -31.052185, -111.022095, -22.544739, -112.72359, -14.462677, -113.9997, -2.1268616, -113.9997, 1.2760925, -113.57433, 14.8880005, -111.022095, 26.373047, -107.19375, 36.156616, -101.66391, 44.238678, -95.7087, 51.47, -88.902756, 57.850586, -82.0968, 63.380432, -74.44011, 68.48489, -64.65654, 71.88785, -55.298355, 74.440094, -43.38794, 75.71622, -31.902893, 75.71622, 148.8802, 67.634125, 157.81303, 53.17148, 158.23839, 53.596863, 127.18623, 51.47, 125.48476, 49.768524, 126.76088, 49.34314, 157.81303, 30.62677, 157.81303, 30.62677, 127.18623, 28.499908, 125.05937, 26.798431, 126.76088, 26.798431, 157.81303, 7.2313232, 158.23839, 7.2313232, 126.76088, 5.5298157, 125.05937, 3.8283386, 126.335495, 3.402954, 157.81303, -14.462677, 158.23839, -14.462677, 126.76088, -16.589508, 124.63402, -18.291016, 126.335495, -18.291016, 158.23839, -34.45514, 158.23839, -34.45514, 127.61162, -36.582, 125.05937, -38.28351, 127.18623, -38.28351, 157.81303, -61.678955, 157.81303, -61.678955, -32.328278, -69.76102, -34.029755, -71.462524, -32.753647, -71.462524, 157.81303, -85.07443, 157.81303, -82.52219, 178.65627, 80.82068, 177.38014, 83.372894, 117.402695, 84.22366, 29.350677, 84.64902, -56.999847, 78.69382, -112.29822, 14.037262, -122.93252, -55.29837, -127.61161, -79.1192, -116.55193, -97.83557, -89.753494, -105.49228, -1.2761078, -101.238556, 118.25343, -103.36542, 158.66377, -82.52219, 178.65627, -85.07443, 157.81303)
+
+[node name="BallLauncher" parent="Machine" unique_id=865570461 instance=ExtResource("2_ltymw")]
+position = Vector2(746, 844)
 objeto_a_lanzar = ExtResource("3_uaasa")
+velocidad_lanzamiento = 1700.0
+variacion_velocidad = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=390972966]
 position = Vector2(953, 436)
@@ -30,8 +76,9 @@ limit_top = 0
 limit_right = 1920
 limit_bottom = 1080
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1928596753 groups=["Hole"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=62089043]
-position = Vector2(974, 604)
-shape = SubResource("CircleShape2D_05tfl")
+[node name="CRT" type="ColorRect" parent="." unique_id=128816761]
+modulate = Color(1, 1, 1, 0.078431375)
+self_modulate = Color(1, 1, 1, 0.09019608)
+material = SubResource("ShaderMaterial_uaasa")
+offset_right = 1921.0
+offset_bottom = 1081.0

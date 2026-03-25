@@ -1,8 +1,9 @@
 extends Node
  
-var time = 120 #2min
-var balls = 1000
+var time = 30 #2min
+var balls = 40
 
+var interval = 2
 
 
 func _input(event: InputEvent) -> void:
